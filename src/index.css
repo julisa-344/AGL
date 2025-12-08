@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-agl-yellow: #F4B400;
+  --color-agl-blue: #003E7E;
+  --color-agl-gray: #757575;
+  --color-agl-black: #0F0F0F;
+  --color-agl-gray-light: #F3F4F6;
+  
+  --font-family-sans: "Montserrat", system-ui, sans-serif;
+  --font-family-headings: "Montserrat", system-ui, sans-serif;
+  --font-family-technical: "Exo 2", system-ui, sans-serif;
+}
