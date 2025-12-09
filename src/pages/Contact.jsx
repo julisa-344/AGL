@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Button from '../components/Button';
+import { Send } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -48,23 +50,6 @@ const Contact = () => {
                 Información de contacto
               </h2>
 
-              {/* Address */}
-              <div className="mb-8">
-                <div className="flex items-start mb-4">
-                  <div className="text-4xl mr-4">📍</div>
-                  <div>
-                    <h3 className="font-semibold text-lg text-agl-black mb-2">
-                      Dirección
-                    </h3>
-                    <p className="text-agl-gray">
-                      Av. Principal 123<br />
-                      Lima, Perú<br />
-                      Lima 15001
-                    </p>
-                  </div>
-                </div>
-              </div>
-
               {/* Phone */}
               <div className="mb-8">
                 <div className="flex items-start mb-4">
@@ -74,12 +59,8 @@ const Contact = () => {
                       Teléfonos
                     </h3>
                     <p className="text-agl-gray">
-                      <a href="tel:+5119999999" className="hover:text-agl-blue transition-colors">
-                        (01) 999-999-999
-                      </a>
-                      <br />
-                      <a href="tel:+51999999999" className="hover:text-agl-blue transition-colors">
-                        +51 999 999 999
+                      <a href="tel:+511989312330" className="hover:text-agl-blue transition-colors">
+                        (01) 989-312-330
                       </a>
                     </p>
                   </div>
@@ -95,12 +76,8 @@ const Contact = () => {
                       Email
                     </h3>
                     <p className="text-agl-gray">
-                      <a href="mailto:ventas@agl.com.pe" className="hover:text-agl-blue transition-colors">
-                        ventas@agl.com.pe
-                      </a>
-                      <br />
-                      <a href="mailto:info@agl.com.pe" className="hover:text-agl-blue transition-colors">
-                        info@agl.com.pe
+                      <a href="mailto:agl.corrales@gmail.com" className="hover:text-agl-blue transition-colors">
+                        agl.corrales@gmail.com
                       </a>
                     </p>
                   </div>
@@ -123,27 +100,6 @@ const Contact = () => {
                       <strong>Domingos:</strong> Cerrado
                     </p>
                   </div>
-                </div>
-              </div>
-
-              {/* Social Media */}
-              <div>
-                <h3 className="font-semibold text-lg text-agl-black mb-4">
-                  Síguenos en redes
-                </h3>
-                <div className="flex space-x-4">
-                  <a href="#" className="text-4xl hover:scale-110 transition-transform duration-300">
-                    📘
-                  </a>
-                  <a href="#" className="text-4xl hover:scale-110 transition-transform duration-300">
-                    📷
-                  </a>
-                  <a href="#" className="text-4xl hover:scale-110 transition-transform duration-300">
-                    💼
-                  </a>
-                  <a href="#" className="text-4xl hover:scale-110 transition-transform duration-300">
-                    💬
-                  </a>
                 </div>
               </div>
             </div>
@@ -264,36 +220,20 @@ const Contact = () => {
                   </div>
 
                   {/* Submit Button */}
-                  <button
+                  <Button
                     type="submit"
-                    className="w-full bg-agl-yellow text-agl-black font-bold text-lg px-8 py-4 rounded-lg hover:bg-yellow-500 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105"
+                    variant="primary"
+                    size="lg"
+                    icon={Send}
+                    fullWidth
                   >
                     Enviar mensaje
-                  </button>
+                  </Button>
 
                   <p className="text-sm text-agl-gray mt-4 text-center">
                     * Campos obligatorios. Nos comprometemos a responder en menos de 24 horas.
                   </p>
                 </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Map Section (Optional) */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-headings text-3xl font-bold text-agl-blue mb-8 text-center">
-            Encuéntranos
-          </h2>
-          <div className="bg-agl-gray-light rounded-lg overflow-hidden shadow-lg">
-            {/* Placeholder para mapa - puedes reemplazar con Google Maps embed */}
-            <div className="aspect-video bg-gradient-to-br from-agl-blue to-agl-gray flex items-center justify-center">
-              <div className="text-center text-white">
-                <div className="text-6xl mb-4">🗺️</div>
-                <p className="text-xl font-semibold">Mapa de ubicación</p>
-                <p className="text-sm opacity-75">Aquí puedes integrar Google Maps</p>
               </div>
             </div>
           </div>

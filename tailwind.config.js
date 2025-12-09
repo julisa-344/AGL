@@ -9,7 +9,7 @@ export default {
       colors: {
         agl: {
           yellow: "#F4B400",      // Amarillo construcción
-          blue: "#003E7E",        // Azul corporativo
+          blue: "##08254f",        // Azul corporativo
           gray: "#757575",        // Gris industrial
           black: "#0F0F0F",       // Negro técnico
           "gray-light": "#F3F4F6" // Fondo clarito

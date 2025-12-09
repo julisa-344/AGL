@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Button from './Button';
+import { FileText } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,13 +10,14 @@ const Navbar = () => {
   const menuItems = [
     { name: 'Inicio', href: '/' },
     { name: 'Productos', href: '/#productos' },
-    { name: 'Nosotros', href: '/#nosotros' },
+    { name: 'Cotización', href: '/cotizacion' },
     { name: 'Contacto', href: '/contacto' },
   ];
 
   const isActive = (href) => {
     if (href === '/') return location.pathname === '/';
     if (href === '/contacto') return location.pathname === '/contacto';
+    if (href === '/cotizacion') return location.pathname === '/cotizacion';
     return false;
   };
 
@@ -25,9 +28,11 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <div className="bg-agl-blue text-white font-bold text-2xl px-4 py-2 rounded">
-                AGL
-              </div>
+              <img 
+                src="/assets/LOGO.png" 
+                alt="AGL Accesorios Eléctricos" 
+                className="h-12 w-auto"
+              />
             </Link>
           </div>
 
@@ -65,17 +70,16 @@ const Navbar = () => {
           {/* Contact & CTA */}
           <div className="hidden md:flex items-center space-x-4">
             <a
-              href="tel:+51999999999"
+              href="tel:+51992778266"
               className="text-agl-blue font-semibold hover:text-agl-yellow transition-colors duration-300"
             >
-              📞 (01) 999-999-999
+              📞 (51) 992-778-266
             </a>
-            <a
-              href="#cotizar"
-              className="bg-agl-yellow text-agl-black font-semibold px-6 py-3 rounded-lg hover:bg-yellow-500 transition-all duration-300 shadow-md hover:shadow-lg"
-            >
-              Cotizar ahora
-            </a>
+            <Link to="/cotizacion">
+              <Button variant="primary" icon={FileText}>
+                Cotizar ahora
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -135,13 +139,16 @@ const Navbar = () => {
             >
               📞 (01) 999-999-999
             </a>
-            <Link
-              to="/contacto"
-              className="block mx-3 my-2 text-center bg-agl-yellow text-agl-black font-semibold px-6 py-3 rounded-lg"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Cotizar ahora
-            </Link>
+            <div className="px-3 py-2">
+              <Link
+                to="/cotizacion"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Button variant="primary" icon={FileText} fullWidth>
+                  Cotizar ahora
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       )}

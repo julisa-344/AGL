@@ -1,10 +1,14 @@
+import { Link } from 'react-router-dom';
+import Button from './Button';
+import { ShoppingBag, Phone } from 'lucide-react';
+
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070"
+          src="assets/hero.jpg"
           alt="Construcción industrial"
           className="w-full h-full object-cover"
         />
@@ -13,30 +17,28 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="font-headings font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white mb-6 leading-tight">
+        <h1 className="font-headings font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white mb-6 leading-tight animate-fade-in-up">
           Accesorios de PVC para
           <br />
-          <span className="text-agl-yellow">proyectos exigentes</span>
+          <span className="text-agl-yellow animate-fade-in-up animation-delay-200">proyectos exigentes</span>
         </h1>
         
-        <p className="text-xl sm:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto">
+        <p className="text-xl sm:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto animate-fade-in-up animation-delay-400">
           Stock permanente, entrega rápida y asesoría técnica para tu obra
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a
-            href="#productos"
-            className="w-full sm:w-auto bg-agl-yellow text-agl-black font-semibold px-8 py-4 rounded-lg hover:bg-yellow-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-          >
-            Ver catálogo completo
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up animation-delay-600">
+          <a href="#productos">
+            <Button variant="primary" size="lg" icon={ShoppingBag}>
+              Ver catálogo completo
+            </Button>
           </a>
-          <a
-            href="#contacto"
-            className="w-full sm:w-auto border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-agl-blue transition-all duration-300"
-          >
-            Hablar con un asesor
-          </a>
+          <Link to="/contacto">
+            <Button variant="outline" size="lg" icon={Phone} className="!text-white !border-white hover:!bg-white hover:!text-agl-blue">
+              Hablar con un asesor
+            </Button>
+          </Link>
         </div>
       </div>
 

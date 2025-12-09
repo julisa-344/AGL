@@ -1,4 +1,9 @@
+import { useState, useEffect, useRef } from 'react';
+
 const Suppliers = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
   const suppliers = [
     { name: "Proveedor 1", logo: "P1" },
     { name: "Proveedor 2", logo: "P2" },
@@ -8,11 +13,34 @@ const Suppliers = () => {
     { name: "Proveedor 6", logo: "P6" },
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className="py-20 bg-white" id="proveedores">
+    <section ref={sectionRef} className="py-20 bg-white" id="proveedores">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <div className="text-center mb-12">
+        <div className={`text-center mb-12 transition-all duration-1000 transform ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-12'
+        }`}>
           <h2 className="font-headings text-4xl sm:text-5xl font-bold text-agl-blue mb-4">
             Proveedores certificados
           </h2>
@@ -28,7 +56,10 @@ const Suppliers = () => {
           {suppliers.map((supplier, index) => (
             <div
               key={index}
-              className="bg-agl-gray-light p-6 rounded-lg hover:bg-white hover:shadow-lg transition-all duration-300 flex items-center justify-center aspect-square border-2 border-transparent hover:border-agl-yellow"
+              className={`bg-agl-gray-light p-6 rounded-lg hover:bg-white hover:shadow-lg transition-all duration-700 flex items-center justify-center aspect-square border-2 border-transparent hover:border-agl-yellow transform ${
+                isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="text-center">
                 <div className="text-2xl font-bold text-agl-blue">

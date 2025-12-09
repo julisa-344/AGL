@@ -11,3 +11,103 @@
   --font-family-headings: "Montserrat", system-ui, sans-serif;
   --font-family-technical: "Exo 2", system-ui, sans-serif;
 }
+
+/* Animaciones personalizadas */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 1.2s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 1s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 1s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.8s ease-out forwards;
+}
+
+/* Delays de animación */
+.animation-delay-200 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-400 {
+  animation-delay: 600ms;
+}
+
+.animation-delay-600 {
+  animation-delay: 900ms;
+}
+
+.animation-delay-800 {
+  animation-delay: 1200ms;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1500ms;
+}
+
+/* Transición suave para duración de 2 segundos */
+.transition-all.duration-2000 {
+  transition-duration: 2000ms;
+}

@@ -1,27 +1,55 @@
+import { useState, useEffect, useRef } from 'react';
+
 const FeaturedProjects = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
   const projects = [
     {
       name: "Gran Teatro Nacional",
-      image: "https://images.unsplash.com/photo-1503891617560-5b8c2e28cbf6?q=80&w=2070",
+      image: "/assets/TeatroNacional.jpg",
       description: "Sistema eléctrico completo",
     },
     {
-      name: "Nuevo Aeropuerto",
-      image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074",
+      name: "Parque de la Amistad Surco",
+      image: "/assets/parqueMolina.jpeg",
       description: "Infraestructura de gran escala",
     },
     {
       name: "Clínica Ricardo Palma",
-      image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053",
+      image: "/assets/ricardoPalma.jpg",
       description: "Instalaciones especializadas",
     },
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className="py-20 bg-white" id="obras">
+    <section ref={sectionRef} className="py-20 bg-white" id="obras">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-12'
+        }`}>
           <h2 className="font-headings text-4xl sm:text-5xl font-bold text-agl-blue mb-4">
             Presente en las obras más importantes del país
           </h2>
@@ -33,7 +61,12 @@ const FeaturedProjects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
+              className={`group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-700 cursor-pointer transform ${
+                isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-20 scale-90'
+              }`}
+              style={{
+                transitionDelay: `${(index + 1) * 200}ms`,
+              }}
             >
               {/* Image */}
               <div className="aspect-w-16 aspect-h-12 overflow-hidden">
