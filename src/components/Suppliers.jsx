@@ -5,12 +5,10 @@ const Suppliers = () => {
   const sectionRef = useRef(null);
 
   const suppliers = [
-    { name: "Proveedor 1", logo: "P1" },
-    { name: "Proveedor 2", logo: "P2" },
-    { name: "Proveedor 3", logo: "P3" },
-    { name: "Proveedor 4", logo: "P4" },
-    { name: "Proveedor 5", logo: "P5" },
-    { name: "Proveedor 6", logo: "P6" },
+    { name: "Tuboplast", logo: "/assets/tuboplast.jpg" },
+    { name: "Kinplast", logo: "/assets/kinplast.png" },
+    { name: "Matusita", logo: "/assets/matusita.png" },
+    { name: "Pavco", logo: "/assets/pavco.png" },
   ];
 
   useEffect(() => {
@@ -35,37 +33,44 @@ const Suppliers = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white" id="proveedores">
+    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-gray-50 to-white" id="proveedores">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <div className={`text-center mb-12 transition-all duration-1000 transform ${
+        <div className={`text-center mb-16 transition-all duration-1000 transform ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-12'
         }`}>
+          {/* Palabrita */}
+          <p className="text-agl-yellow font-semibold text-sm uppercase tracking-widest mb-3">
+            Nuestros Aliados
+          </p>
+          
+          {/* Título */}
           <h2 className="font-headings text-4xl sm:text-5xl font-bold text-agl-blue mb-4">
             Proveedores certificados
           </h2>
-          <div className="w-24 h-1 bg-agl-yellow mx-auto mb-6"></div>
-          <p className="text-lg text-agl-gray max-w-2xl mx-auto">
+          
+          {/* Descripción */}
+          <p className="text-base text-agl-gray max-w-3xl mx-auto">
             Trabajamos con los mejores fabricantes para garantizar la calidad y
             durabilidad del PVC en cada proyecto
           </p>
         </div>
 
         {/* Suppliers Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center justify-items-center">
           {suppliers.map((supplier, index) => (
             <div
               key={index}
-              className={`bg-agl-gray-light p-6 rounded-lg hover:bg-white hover:shadow-lg transition-all duration-700 flex items-center justify-center aspect-square border-2 border-transparent hover:border-agl-yellow transform ${
-                isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'
+              className={`w-32 md:w-40 transition-all duration-700 transform ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="text-center">
-                <div className="text-2xl font-bold text-agl-blue">
-                  {supplier.logo}
-                </div>
-              </div>
+              <img
+                src={supplier.logo}
+                alt={supplier.name}
+                className="w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
+              />
             </div>
           ))}
         </div>

@@ -27,7 +27,7 @@ const Products = () => {
     },
     {
       name: "Separadores",
-      image: "/assets/union.png",
+      image: "/assets/separadorr.png",
       description: "Separadores y tees para ramificaciones profesionales que mantienen la organización de tus instalaciones.",
       step: "STEP 4"
     },

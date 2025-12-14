@@ -1,11 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Button from './Button';
 import { FileText } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const menuItems = [
     { name: 'Inicio', href: '/' },
@@ -22,16 +32,20 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md fixed w-full top-0 z-50">
+    <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-white shadow-md py-4' : 'bg-transparent py-6'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
               <img 
                 src="/assets/LOGO.png" 
                 alt="AGL Accesorios Eléctricos" 
-                className="h-12 w-auto"
+                className={`h-12 w-auto transition-all duration-300 ${
+                  isScrolled ? 'brightness-100' : 'brightness-0 invert'
+                }`}
               />
             </Link>
           </div>
@@ -45,8 +59,8 @@ const Navbar = () => {
                   href={item.href}
                   className={`transition-colors duration-300 font-medium ${
                     isActive(item.href) 
-                      ? 'text-agl-blue border-b-2 border-agl-yellow' 
-                      : 'text-agl-gray hover:text-agl-blue'
+                      ? `${isScrolled ? 'text-agl-blue' : 'text-white'} border-b-2 border-agl-yellow` 
+                      : `${isScrolled ? 'text-agl-gray hover:text-agl-blue' : 'text-white/90 hover:text-white'}`
                   }`}
                 >
                   {item.name}
@@ -57,8 +71,8 @@ const Navbar = () => {
                   to={item.href}
                   className={`transition-colors duration-300 font-medium ${
                     isActive(item.href) 
-                      ? 'text-agl-blue border-b-2 border-agl-yellow' 
-                      : 'text-agl-gray hover:text-agl-blue'
+                      ? `${isScrolled ? 'text-agl-blue' : 'text-white'} border-b-2 border-agl-yellow` 
+                      : `${isScrolled ? 'text-agl-gray hover:text-agl-blue' : 'text-white/90 hover:text-white'}`
                   }`}
                 >
                   {item.name}
@@ -71,7 +85,9 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-4">
             <a
               href="tel:+51992778266"
-              className="text-agl-blue font-semibold hover:text-agl-yellow transition-colors duration-300"
+              className={`font-semibold transition-colors duration-300 ${
+                isScrolled ? 'text-agl-blue hover:text-agl-yellow' : 'text-white hover:text-agl-yellow'
+              }`}
             >
               📞 (51) 992-778-266
             </a>
@@ -86,7 +102,9 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-agl-gray hover:text-agl-blue focus:outline-none"
+              className={`transition-colors duration-300 focus:outline-none ${
+                isScrolled ? 'text-agl-gray hover:text-agl-blue' : 'text-white hover:text-agl-yellow'
+              }`}
             >
               <svg
                 className="h-6 w-6"
