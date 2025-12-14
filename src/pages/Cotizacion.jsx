@@ -171,7 +171,7 @@ const Cotizacion = () => {
                   />
                 </div>
               </div>
-            </div>3
+            </div>
 
             {/* Lista de Productos */}
             <div className="bg-white rounded-lg shadow-md p-8">

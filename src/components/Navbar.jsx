@@ -19,7 +19,7 @@ const Navbar = () => {
 
   const menuItems = [
     { name: 'Inicio', href: '/' },
-    { name: 'Productos', href: '/#productos' },
+    { name: 'Productos', href: '/productos' },
     { name: 'Cotización', href: '/cotizacion' },
     { name: 'Contacto', href: '/contacto' },
   ];
@@ -28,6 +28,7 @@ const Navbar = () => {
     if (href === '/') return location.pathname === '/';
     if (href === '/contacto') return location.pathname === '/contacto';
     if (href === '/cotizacion') return location.pathname === '/cotizacion';
+    if (href === '/productos') return location.pathname === '/productos';
     return false;
   };
 

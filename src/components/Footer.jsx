@@ -6,7 +6,7 @@ import Button from './Button';
 const Footer = () => {
   const menuLinks = [
     { name: "Nosotros", href: "/#nosotros" },
-    { name: "Productos", href: "/#productos" },
+    { name: "Productos", href: "/productos" },
     { name: "Proyectos", href: "/#obras" },
     { name: "Cotización", href: "/cotizacion" },
   ];

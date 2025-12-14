@@ -72,18 +72,16 @@ const FeaturedProjects = () => {
         }`}>
           {/* Tagline */}
           <p className="text-agl-yellow text-sm uppercase tracking-widest mb-3 font-semibold">
-            Obras importantes del país
+            Obras importantes
           </p>
           
           {/* Title and Navigation in same row */}
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-baseline gap-4 flex-wrap">
               <h2 className="font-headings text-3xl sm:text-4xl lg:text-5xl font-bold text-white uppercase">
-                Proyectos
+                Proyectos Destacados
               </h2>
-              <span className="font-headings text-3xl sm:text-4xl lg:text-5xl font-bold text-agl-yellow uppercase">
-                Destacados
-              </span>
+             
             </div>
 
             {/* Navigation Arrows */}

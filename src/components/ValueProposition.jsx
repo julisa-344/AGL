@@ -56,7 +56,7 @@ const ValueProposition = () => {
     <section ref={sectionRef} className="py-20 bg-white" id="nosotros">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <div className={`text-center mb-16 transition-all duration-1000 transform ${
+        {/* <div className={`text-center mb-16 transition-all duration-1000 transform ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-12'
         }`}>
           <p className="text-agl-yellow font-semibold uppercase tracking-wider text-sm mb-2">
@@ -69,7 +69,7 @@ const ValueProposition = () => {
             Nos especializamos en proveer soluciones integrales para
             constructoras y profesionales del sector
           </p>
-        </div>
+        </div> */}
 
         {/* Values Grid with Donut Charts */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">

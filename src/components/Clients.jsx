@@ -78,7 +78,7 @@ const Clients = () => {
             >
               {/* Logo container - corta el borde superior */}
               <div className="absolute -top-10 left-8 z-20">
-                <div className="w-20 h-20 bg-agl-blue flex items-center justify-center group-hover:scale-105 transition-transform duration-300 p-2">
+                <div className="w-25 h-25 bg-agl-blue flex items-center justify-center group-hover:scale-105 transition-transform duration-300 p-2">
                   <img 
                     src={client.logo} 
                     alt={client.name}
